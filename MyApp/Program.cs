@@ -3,7 +3,7 @@ var app = builder.Build();
 
 app.MapGet("/", () => new
 {
-    message = "Hello World from CI/CD Docker Ubuntu v121asd 1"
+    message = "Hello World from CI/CD Docker Ubuntu v121 asd 1123"
 });
 
 app.Run();
