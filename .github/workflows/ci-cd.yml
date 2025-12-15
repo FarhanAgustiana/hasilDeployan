@@ -1,30 +1,32 @@
-name: CI CD DotNet Docker Ubuntu
+name: CI CD Branch Based Deploy
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
+      - development
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+    environment: ${{ github.ref_name == 'main' && 'production' || 'development' }}
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '8.0.x'
 
     - name: Restore
-      run: dotnet restore  MyApp/MyApp.csproj
+      run: dotnet restore MyApp/MyApp.csproj
 
     - name: Build
-      run: dotnet build  MyApp/MyApp.csproj --no-restore
+      run: dotnet build MyApp/MyApp.csproj --no-restore
 
     - name: Test
-      run: dotnet  test MyApp/MyApp.csproj --no-build
+      run: dotnet test MyApp/MyApp.csproj --no-build
 
     - name: Docker Login
       uses: docker/login-action@v3
@@ -34,21 +36,21 @@ jobs:
 
     - name: Build & Push Docker Image
       run: |
-        docker build -f MyApp/Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/myapp:latest .
-        docker push ${{ secrets.DOCKER_USERNAME }}/myapp:latest
+        docker build -f MyApp/Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/myapp:${{ github.ref_name }} .
+        docker push ${{ secrets.DOCKER_USERNAME }}/myapp:${{ github.ref_name }}
 
-    - name: Deploy to Ubuntu Server
+    - name: Deploy via SSH
       uses: appleboy/ssh-action@v1.0.3
       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          docker pull ${{ secrets.DOCKER_USERNAME }}/myapp:latest
+          docker pull ${{ secrets.DOCKER_USERNAME }}/myapp:${{ github.ref_name }}
           docker stop myapp || true
           docker rm myapp || true
           docker run -d \
             --name myapp \
             -p 8080:8080 \
             --restart unless-stopped \
-            ${{ secrets.DOCKER_USERNAME }}/myapp:latest
+            ${{ secrets.DOCKER_USERNAME }}/myapp:${{ github.ref_name }}
