@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "RAfnc9ujT4k=",
+  "dgSpecHash": "cotKsC426uw=",
   "success": true,
-  "projectFilePath": "D:\\Deployan\\MyApp\\MyApp.csproj",
+  "projectFilePath": "D:\\DeployanDev\\hasilDeployan\\MyApp\\MyApp.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\MD_FARHAN\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.7\\microsoft.aspnetcore.openapi.9.0.7.nupkg.sha512",
-    "C:\\Users\\MD_FARHAN\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+    "C:\\Users\\MD_FARHAN\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.7\\microsoft.aspnetcore.openapi.8.0.7.nupkg.sha512",
+    "C:\\Users\\MD_FARHAN\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512"
   ],
   "logs": []
 }

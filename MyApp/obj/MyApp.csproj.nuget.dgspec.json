@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Deployan\\MyApp\\MyApp.csproj": {}
+    "D:\\DeployanDev\\hasilDeployan\\MyApp\\MyApp.csproj": {}
   },
   "projects": {
-    "D:\\Deployan\\MyApp\\MyApp.csproj": {
+    "D:\\DeployanDev\\hasilDeployan\\MyApp\\MyApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Deployan\\MyApp\\MyApp.csproj",
+        "projectUniqueName": "D:\\DeployanDev\\hasilDeployan\\MyApp\\MyApp.csproj",
         "projectName": "MyApp",
-        "projectPath": "D:\\Deployan\\MyApp\\MyApp.csproj",
+        "projectPath": "D:\\DeployanDev\\hasilDeployan\\MyApp\\MyApp.csproj",
         "packagesPath": "C:\\Users\\MD_FARHAN\\.nuget\\packages\\",
-        "outputPath": "D:\\Deployan\\MyApp\\obj\\",
+        "outputPath": "D:\\DeployanDev\\hasilDeployan\\MyApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\DevExpress 20.2\\Components\\Offline Packages",
@@ -26,7 +26,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net9.0"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\DevExpress 20.2\\Components\\System\\Components\\Packages": {},
@@ -36,8 +36,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net9.0": {
-            "targetAlias": "net9.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -54,12 +54,12 @@
         "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
-              "version": "[9.0.7, )"
+              "version": "[8.0.7, )"
             }
           },
           "imports": [
